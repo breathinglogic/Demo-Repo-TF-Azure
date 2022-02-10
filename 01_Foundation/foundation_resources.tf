@@ -6,7 +6,7 @@ data "azurerm_client_config" "current" {}
 ##################################################
 
 #Create a Resource Group
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "rg12976" {
   name     = var.resource_group_name
   location = var.location
   tags     = var.tags
