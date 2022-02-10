@@ -4,7 +4,7 @@ on:
 
 jobs:
   Plan_Dev:
-    uses: Demo-Repo-TF-Azure/.github/workflows/az_tf_plan.yml@master
+    uses: breathinglogic/Demo-Repo-TF-Azure/.github/workflows/az_tf_plan.yml@master
     with:
       path: 02_Storage                   ## Path to terraform root module (Required)
       tf_version: latest                 ## Terraform version e.g: 1.1.0 Default=latest (Optional)
@@ -22,7 +22,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: Demo-Repo-TF-Azure/.github/workflows/az_tf_apply.yml@master
+    uses: breathinglogic/Demo-Repo-TF-Azure/.github/workflows/az_tf_apply.yml@master
     with:
       path: 02_Storage                   ## Path to terraform root module (Required)
       tf_version: latest                 ## Terraform version e.g: 1.1.0 Default=latest (Optional)
@@ -38,7 +38,7 @@ jobs:
       arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}             ## ARM Tenant ID
 
   Plan_Uat:
-    uses: Demo-Repo-TF-Azure/.github/workflows/az_tf_plan.yml@master
+    uses: breathinglogic/Demo-Repo-TF-Azure/.github/workflows/az_tf_plan.yml@master
     with:
       path: 02_Storage
       az_resource_group: TF-Core-Rg
@@ -55,7 +55,7 @@ jobs:
 
   Deploy_Uat:
     needs: [Plan_Uat, Deploy_Dev]
-    uses: Demo-Repo-TF-Azure/.github/workflows/az_tf_apply.yml@master
+    uses: breathinglogic/Demo-Repo-TF-Azure/.github/workflows/az_tf_apply.yml@master
     with:
       path: 02_Storage
       az_resource_group: TF-Core-Rg
@@ -70,7 +70,7 @@ jobs:
       arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}
 
   Plan_Prod:
-    uses: Demo-Repo-TF-Azure/.github/workflows/az_tf_plan.yml@master
+    uses: breathinglogic/Demo-Repo-TF-Azure/.github/workflows/az_tf_plan.yml@master
     with:
       path: 02_Storage
       tf_version: latest
@@ -88,7 +88,7 @@ jobs:
 
   Deploy_Prod:
     needs: [Plan_Prod, Deploy_Uat]
-    uses: Demo-Repo-TF-Azure/.github/workflows/az_tf_apply.yml@master
+    uses: breathinglogic/Demo-Repo-TF-Azure/.github/workflows/az_tf_apply.yml@master
     with:
       path: 02_Storage
       az_resource_group: TF-Core-Rg
