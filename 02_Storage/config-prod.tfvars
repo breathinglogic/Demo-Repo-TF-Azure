@@ -28,6 +28,7 @@ storage_config = [
 
 tags = {
   terraformDeployment = "true",
-  GithubRepo          = "https://github.com/Pwd9000-ML/Azure-Terraform-Deployments"
+  #GithubRepo          = "https://github.com/Pwd9000-ML/Azure-Terraform-Deployments"
+  GithubRepo          = "https://github.com/breathinglogic/Demo-Repo-TF-Azure"
   Environment         = "PROD"
 }
